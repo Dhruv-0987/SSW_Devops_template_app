@@ -6,5 +6,5 @@ on:
     - main
 
 jobs:
-  ASP.NET Core with Angular:
+  ASP.NET_Core_with_Angular:
     uses: ./.github/workflows/ASP.NET Core with Angular.yml
