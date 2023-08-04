@@ -8,6 +8,7 @@ env:
   DOTNET_CORE_VERSION: 7.0.x
   WORKING_DIRECTORY: .
 jobs:
+
   deploy:
     runs-on: windows-latest
     steps:
@@ -24,4 +25,4 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.SSW_Devops_template_app_6E5B }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-      secrets: inherit
+

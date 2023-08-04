@@ -8,3 +8,4 @@ on:
 jobs:
   ASP_Dotnet_Core_with_Angular:
     uses: ./.github/workflows/ASP.NET Core with Angular.yml
+    secrets: inherit
