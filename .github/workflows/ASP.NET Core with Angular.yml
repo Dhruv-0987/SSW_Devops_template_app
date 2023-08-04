@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - main
+  workflow_call:
 env:
   AZURE_WEBAPP_NAME: SSW-Devops-template-app
   AZURE_WEBAPP_PACKAGE_PATH: .\published
