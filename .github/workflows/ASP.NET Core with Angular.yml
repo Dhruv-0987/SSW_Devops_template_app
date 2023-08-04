@@ -10,11 +10,8 @@ env:
 jobs:
   deploy:
     runs-on: windows-latest
+    needs: build
     steps:
-    - name: Azure Login
-      uses: azure/login@v1  # Add Azure login action here to authenticate
-      with:
-        creds: ${{ secrets.SSW_Devops_template_app_6E5B }}  # You need to set up the AZURE_CREDENTIALS secret in your repository containing the necessary credentials
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
     - name: Download artifact from build job
@@ -28,3 +25,4 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.SSW_Devops_template_app_6E5B }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      secrets: inherit
