@@ -33,7 +33,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     steps:
-     - name: Azure Login
+    - name: Azure Login
       uses: azure/login@v1  # Add Azure login action here to authenticate
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}  # You need to set up the AZURE_CREDENTIALS secret in your repository containing the necessary credentials
