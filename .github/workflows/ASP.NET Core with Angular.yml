@@ -10,7 +10,6 @@ env:
 jobs:
   deploy:
     runs-on: windows-latest
-    needs: build
     steps:
     - name: Azure Login
       uses: azure/login@v1  # Add Azure login action here to authenticate
