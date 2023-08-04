@@ -1,0 +1,7 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  dotnet:
+    uses: ./.github/workflows/ASP.NET Core with Angular.yml

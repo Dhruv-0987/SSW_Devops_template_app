@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Web App SSW-Devops-template-app
+name: ASP.NET Core with Angular Workflow
 on:
   push:
     branches:
