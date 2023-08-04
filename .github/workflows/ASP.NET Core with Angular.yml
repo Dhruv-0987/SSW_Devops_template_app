@@ -7,28 +7,6 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 7.0.x
   WORKING_DIRECTORY: .
-jobs:
-  build:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-    - name: Restore
-      run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
-    - name: Build
-      run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
-    - name: Test
-      run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
-    - name: Publish
-      run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
-    - name: Publish Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: webapp
-        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy:
     runs-on: windows-latest
     needs: build
@@ -36,7 +14,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1  # Add Azure login action here to authenticate
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}  # You need to set up the AZURE_CREDENTIALS secret in your repository containing the necessary credentials
+        creds: ${{ secrets.SSW_Devops_template_app_6E5B }}  # You need to set up the AZURE_CREDENTIALS secret in your repository containing the necessary credentials
     - name: Download artifact from build job
       uses: actions/download-artifact@v3
     - name: Download artifact from build job
