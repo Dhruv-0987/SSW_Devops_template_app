@@ -1,8 +1,5 @@
 name: ASP.NET Core with Angular Workflow
 on:
-  push:
-    branches:
-    - main
   workflow_call:
 env:
   AZURE_WEBAPP_NAME: SSW-Devops-template-app
